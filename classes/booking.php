@@ -1692,7 +1692,8 @@ class booking {
     public static function return_sql_for_event_logs(
         string $component = 'mod_booking',
         array $eventnames = [],
-        int $objectid = 0
+        int $objectid = 0,
+        int $contextinstanceid = 0
     ) {
         global $DB;
 
@@ -1717,6 +1718,11 @@ class booking {
         if (!empty($objectid)) {
             $where .= " AND objectid = :objectid ";
             $params['objectid'] = $objectid;
+        }
+
+        if (!empty($contextinstanceid)) {
+            $where .= " AND contextinstanceid = :contextinstanceid ";
+            $params['contextinstanceid'] = $contextinstanceid;
         }
 
         $filter = '';

@@ -74,11 +74,11 @@ class eventslist implements renderable, templatable {
      * @param int $id
      * @param array $eventnames
      */
-    public function __construct(int $id = 0, array $eventnames = []) {
+    public function __construct(int $id = 0, array $eventnames = [], int $cmid = 0) {
 
         global $DB;
 
-        [$select, $from, $where, $filter, $params] = booking::return_sql_for_event_logs('mod_booking', $eventnames, $id);
+        [$select, $from, $where, $filter, $params] = booking::return_sql_for_event_logs('mod_booking', $eventnames, $id, $cmid);
 
         $tablenamestring = "eventlogtable" . $id . implode('-', $eventnames);
 

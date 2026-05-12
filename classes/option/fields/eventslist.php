@@ -110,7 +110,8 @@ class eventslist extends field_base {
 
         $data = new OutputEventslist(
             $formdata['id'] ?? $formdata['optionid'],
-            ['\mod_booking\event\bookingoption_updated']
+            ['\mod_booking\event\bookingoption_updated'],
+            (int)($formdata['cmid'] ?? 0)
         );
         $data->icon = 'fa fa-wrench';
         $data->title = get_string('showrecentupdates', 'mod_booking');
