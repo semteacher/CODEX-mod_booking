@@ -86,6 +86,9 @@ final class optionview_prefill_test extends advanced_testcase {
      * @covers \mod_booking\local\customform_prefill::build_prefill_data
      */
     public function test_prefill_from_request_maps_labels_and_internal_identifiers(): void {
+
+        $this->setAdminUser();
+
         $user = $this->getDataGenerator()->create_user(['username' => 'prefilluser1']);
         [$booking, $option] = $this->create_booking_option_with_customform();
 
@@ -118,6 +121,9 @@ final class optionview_prefill_test extends advanced_testcase {
      * @covers \mod_booking\local\customform_prefill::build_prefill_data
      */
     public function test_prefill_from_request_ignores_invalid_values_and_merges_existing_cache(): void {
+
+        $this->setAdminUser();
+
         $user = $this->getDataGenerator()->create_user(['username' => 'prefilluser2']);
         [, $option] = $this->create_booking_option_with_customform();
 
